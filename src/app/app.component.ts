@@ -20,10 +20,16 @@ export class AppComponent implements OnInit {
   private y: any;
   private svg: any;
   private line: d3Shape.Line<[number, number]>;
+  private highAlert: number;
+  private lowAlert: number;
+  toggle: boolean;
 
   constructor() {
     this.width = 960 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
+    this.highAlert = 5.7;
+    this.lowAlert = 5.3;
+    this.toggle = true;
   }
 
   ngOnInit() {
@@ -42,20 +48,20 @@ export class AppComponent implements OnInit {
                     "translate(" + this.margin.left + "," + this.margin.top + ")");
     this.svg.append('line')
             .attr('x1', 0)
-            .attr('y1', 28)
-            .attr('x2', 850)
-            .attr('y2', 28)
+            .attr('y1', 13)
+            .attr('x2', this.width)
+            .attr('y2', 13)
             .style('stroke', 'rgb(255, 0, 0)')
             .style('stroke-width', 2);
     this.svg.append('line')
             .attr('x1', 0)
-            .attr('y1', 310)
-            .attr('x2', 850)
-            .attr('y2', 310)
+            .attr('y1', 263)
+            .attr('x2', this.width)
+            .attr('y2', 263)
             .style('stroke', 'rgb(255, 0, 0)')
             .style('stroke-width', 2);
     this.svg.append('circle')
-            .attr('cx', 394)
+            .attr('cx', 405)
             .attr('cy', 2)
             .attr('r', 20)
             .style("fill", "none")
@@ -98,6 +104,11 @@ export class AppComponent implements OnInit {
             .attr('d', this.line)
             .style("fill", "none")
             .style('stroke', 'rgb(0, 0, 255)');
+  }
+
+  hideChart(event: any) {
+    console.log('hide chart');
+    this.toggle = false;
   }
 
 }

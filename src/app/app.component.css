@@ -20,3 +20,8 @@
     stroke: #0047ba;
     stroke-width: 5px;
  }
+
+ .btn-primary {
+     float: right;
+     margin-top: 30px;
+ }
