@@ -34,9 +34,6 @@ export class AppComponent implements OnInit {
   }
 
   private initSvg() {
-    // this.svg = d3.select('#visualisation')
-    //              .append('g')
-    //              .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
     this.svg = d3.select("#visualisation")
                 .append("g")
                 .attr("width", this.width + this.margin.left + this.margin.right)
@@ -61,7 +58,8 @@ export class AppComponent implements OnInit {
             .attr('cx', 394)
             .attr('cy', 2)
             .attr('r', 20)
-            .attr('fill', 'red');
+            .style("fill", "none")
+            .style('stroke', 'red');
   }
 
   private initAxis() {
@@ -84,7 +82,7 @@ export class AppComponent implements OnInit {
             .attr('class', 'axis-title')
             .attr('transform', 'rotate(-90)')
             .attr('y', 6)
-            .attr('dy', '.71em')
+            .attr('dy', '.3em')
             .style('text-anchor', 'end')
             .text('Value ($)');
   }
@@ -98,6 +96,7 @@ export class AppComponent implements OnInit {
             .datum(Stocks)
             .attr('class', 'line')
             .attr('d', this.line)
+            .style("fill", "none")
             .style('stroke', 'rgb(0, 0, 255)');
   }
 
