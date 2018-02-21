@@ -4,7 +4,6 @@ export interface Stock {
 }
 
 export const Stocks: Stock[] = [
-    { scale: 0, value: 5.3 },
     { scale: 1, value: 5.56 },
     { scale: 2, value: 5.52 },
     { scale: 3, value: 5.59 },

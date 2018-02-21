@@ -1,6 +1,6 @@
 .axis path {
     fill: none;
-    stroke: #777;
+    stroke: #0047ba;
     shape-rendering: crispEdges;
 }
 .axis text {
@@ -14,3 +14,9 @@
     border-radius: 10px;
     margin-top: 50px;
 }
+
+.line {
+    fill: none;
+    stroke: #0047ba;
+    stroke-width: 5px;
+ }

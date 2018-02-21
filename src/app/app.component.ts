@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   private line: d3Shape.Line<[number, number]>;
 
   constructor() {
-    this.width = 900 - this.margin.left - this.margin.right;
+    this.width = 960 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
   }
 
@@ -34,9 +34,34 @@ export class AppComponent implements OnInit {
   }
 
   private initSvg() {
-    this.svg = d3.select('svg')
-                 .append('g')
-                 .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+    // this.svg = d3.select('#visualisation')
+    //              .append('g')
+    //              .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+    this.svg = d3.select("#visualisation")
+                .append("g")
+                .attr("width", this.width + this.margin.left + this.margin.right)
+                .attr("height", this.height + this.margin.top + this.margin.bottom)
+                .append("g").attr("transform",
+                    "translate(" + this.margin.left + "," + this.margin.top + ")");
+    this.svg.append('line')
+            .attr('x1', 0)
+            .attr('y1', 28)
+            .attr('x2', 850)
+            .attr('y2', 28)
+            .style('stroke', 'rgb(255, 0, 0)')
+            .style('stroke-width', 2);
+    this.svg.append('line')
+            .attr('x1', 0)
+            .attr('y1', 310)
+            .attr('x2', 850)
+            .attr('y2', 310)
+            .style('stroke', 'rgb(255, 0, 0)')
+            .style('stroke-width', 2);
+    this.svg.append('circle')
+            .attr('cx', 394)
+            .attr('cy', 2)
+            .attr('r', 20)
+            .attr('fill', 'red');
   }
 
   private initAxis() {
@@ -72,7 +97,8 @@ export class AppComponent implements OnInit {
     this.svg.append('path')
             .datum(Stocks)
             .attr('class', 'line')
-            .attr('d', this.line);
+            .attr('d', this.line)
+            .style('stroke', 'rgb(0, 0, 255)');
   }
 
 }
