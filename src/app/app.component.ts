@@ -52,18 +52,19 @@ export class AppComponent implements OnInit {
             .attr('x2', this.width)
             .attr('y2', 135)
             .style('stroke', 'rgb(255, 0, 0)')
-            .style('stroke-width', 2);
+            .style('stroke-width', 3);
     this.svg.append('line')
             .attr('x1', 0)
             .attr('y1', 315)
             .attr('x2', this.width)
             .attr('y2', 315)
             .style('stroke', 'rgb(255, 0, 0)')
-            .style('stroke-width', 2);
+            .style('stroke-width', 3);
     this.svg.append('circle')
             .attr('cx', 370)
             .attr('cy', 125)
             .attr('r', 20)
+            .style('stroke-width', 2)
             .style("fill", "none")
             .style('stroke', 'red');
   }
@@ -87,8 +88,8 @@ export class AppComponent implements OnInit {
             .append('text')
             .attr('class', 'axis-title')
             .attr('transform', 'rotate(-90)')
-            // .attr('y', 6)
-            // .attr('dy', '.3em')
+            .attr('y', 6)
+            .attr('dy', '3em')
             .style('text-anchor', 'end')
             .text('Value ($)');
   }
@@ -103,6 +104,7 @@ export class AppComponent implements OnInit {
             .attr('class', 'line')
             .attr('d', this.line)
             .style("fill", "none")
+            .style('stroke-width', 3)
             .style('stroke', 'rgb(0, 0, 255)');
   }
 
