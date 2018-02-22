@@ -22,14 +22,14 @@ export class AppComponent implements OnInit {
   private line: d3Shape.Line<[number, number]>;
   private highAlert: number;
   private lowAlert: number;
-  toggle: boolean;
+  isDataAvailable: boolean;
 
   constructor() {
     this.width = 960 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.highAlert = 5.7;
     this.lowAlert = 5.3;
-    this.toggle = true;
+    this.isDataAvailable = true;
   }
 
   ngOnInit() {
@@ -48,21 +48,21 @@ export class AppComponent implements OnInit {
                     "translate(" + this.margin.left + "," + this.margin.top + ")");
     this.svg.append('line')
             .attr('x1', 0)
-            .attr('y1', 13)
+            .attr('y1', 135)
             .attr('x2', this.width)
-            .attr('y2', 13)
+            .attr('y2', 135)
             .style('stroke', 'rgb(255, 0, 0)')
             .style('stroke-width', 2);
     this.svg.append('line')
             .attr('x1', 0)
-            .attr('y1', 263)
+            .attr('y1', 315)
             .attr('x2', this.width)
-            .attr('y2', 263)
+            .attr('y2', 315)
             .style('stroke', 'rgb(255, 0, 0)')
             .style('stroke-width', 2);
     this.svg.append('circle')
-            .attr('cx', 405)
-            .attr('cy', 2)
+            .attr('cx', 370)
+            .attr('cy', 125)
             .attr('r', 20)
             .style("fill", "none")
             .style('stroke', 'red');
@@ -87,8 +87,8 @@ export class AppComponent implements OnInit {
             .append('text')
             .attr('class', 'axis-title')
             .attr('transform', 'rotate(-90)')
-            .attr('y', 6)
-            .attr('dy', '.3em')
+            // .attr('y', 6)
+            // .attr('dy', '.3em')
             .style('text-anchor', 'end')
             .text('Value ($)');
   }
@@ -108,7 +108,8 @@ export class AppComponent implements OnInit {
 
   hideChart(event: any) {
     console.log('hide chart');
-    this.toggle = false;
+    this.isDataAvailable = false;
+    d3.selectAll("svg > *").remove();
   }
 
 }
