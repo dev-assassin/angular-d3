@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
   }
 
   private initAxis() {
-    this.x = d3Scale.scaleTime().range([0, this.width]);
+    this.x = d3Scale.scaleLinear().range([0, this.width]);
     this.y = d3Scale.scaleLinear().range([this.height, 0]);
     this.x.domain(d3Array.extent(Stocks, (d) => d.scale));
     this.y.domain(d3Array.extent(Stocks, (d) => d.value));
@@ -89,9 +89,9 @@ export class AppComponent implements OnInit {
             .attr('class', 'axis-title')
             .attr('transform', 'rotate(-90)')
             .attr('y', 6)
-            .attr('dy', '3em')
+            .attr('dy', '.71em')
             .style('text-anchor', 'end')
-            .text('Value ($)');
+            .text('Value (data)');
   }
 
   private drawLine() {

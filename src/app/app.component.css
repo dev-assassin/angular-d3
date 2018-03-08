@@ -10,7 +10,6 @@
 
 .chart {
     border: 3px solid #0047ba;
-    height: 500px;
     border-radius: 10px;
     margin-top: 50px;
 }
@@ -19,6 +18,11 @@
     fill: none;
     stroke: #0047ba;
     stroke-width: 5px;
+ }
+
+ svg {
+     height: 500px;
+     width: 900px;
  }
 
  .btn-primary {
